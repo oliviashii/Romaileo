@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 /*
-    Created by Olivia Shi and Priyanka Sarangabany for CS125 Spring 2020 Final Project at UIUC.
+    Created by Olivia Shi (owshi2) and Priyanka Sarangabany (ps28) for CS125 Spring 2020 Final Project at UIUC.
     Our app is made for hopeless romantics who wish to spread love and joy
     through the virtual "Romeo", RomaileoBot.
     We learned about the JavaMailAPI from the following sources:
