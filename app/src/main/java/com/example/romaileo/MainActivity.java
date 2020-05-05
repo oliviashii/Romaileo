@@ -41,6 +41,5 @@ public class MainActivity extends AppCompatActivity {
         JavaMailAPI javaMailAPI = new JavaMailAPI(this,mail,subject,message);
 
         javaMailAPI.execute();
-
     }
 }

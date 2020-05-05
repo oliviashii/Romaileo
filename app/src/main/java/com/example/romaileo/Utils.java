@@ -1,6 +1,8 @@
 package com.example.romaileo;
 
 public class Utils {
-    public static final String EMAIL = "romaileo@gmail.com";
-    public static final String PASSWORD = "romaileobotPassword";
+    public static final String EMAIL = "romaileobot@gmail.com";
+    public static final String PASSWORD = "uohypfehopxtmejb";
+
+    //uohypfehopxtmejb
 }
