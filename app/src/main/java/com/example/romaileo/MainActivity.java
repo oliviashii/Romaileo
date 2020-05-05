@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    public EditText mEmail;
+    public EditText email;
     public EditText mSubject;
     public EditText mMessage;
     public Button send;
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mEmail = findViewById(R.id.to);
+        email = findViewById(R.id.to);
         mMessage = findViewById(R.id.message);
         mSubject = findViewById(R.id.subject);
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void sendMail() {
 
-        String mail = mEmail.getText().toString().trim();
+        String mail = email.getText().toString().trim();
         String message = mMessage.getText().toString();
         String subject = mSubject.getText().toString().trim();
 
