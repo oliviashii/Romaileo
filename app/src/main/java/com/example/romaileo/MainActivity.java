@@ -1,48 +1,49 @@
 package com.example.romaileo;
 
-import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText mEditTextTo;
-    private EditText mEditTextSubject;
-    private EditText mEditTextMessage;
+
+    public EditText mEmail;
+    public EditText mSubject;
+    public EditText mMessage;
+    public Button send;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mEditTextTo = findViewById(R.id.edit_text_to);
-        mEditTextSubject = findViewById(R.id.edit_text_subject);
-        mEditTextMessage = findViewById(R.id.edit_text_message);
+        mEmail = findViewById(R.id.to);
+        mMessage = findViewById(R.id.message);
+        mSubject = findViewById(R.id.subject);
 
-        Button buttonSend = findViewById(R.id.button_send);
-        buttonSend.setOnClickListener(new View.OnClickListener() {
+        send = findViewById(R.id.send);
+        send.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 sendMail();
             }
         });
     }
 
     private void sendMail() {
-        String recipientList = mEditTextTo.getText().toString();
-        String[] recipients = recipientList.split(",");
 
-        String subject = mEditTextSubject.getText().toString();
-        String message = mEditTextMessage.getText().toString();
+        String mail = mEmail.getText().toString().trim();
+        String message = mMessage.getText().toString();
+        String subject = mSubject.getText().toString().trim();
 
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_EMAIL, recipients);
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        intent.putExtra(Intent.EXTRA_TEXT, message);
+        //Send Mail
+        JavaMailAPI javaMailAPI = new JavaMailAPI(this,mail,subject,message);
 
-        intent.setType("message/rfc822");
-        startActivity(Intent.createChooser(intent, "Choose an email client"));
+        javaMailAPI.execute();
+
     }
 }
